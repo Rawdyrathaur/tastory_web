@@ -1,367 +1,225 @@
-type SavedItemProps = {
-  domain: string;
-  title: string;
-  note?: string;
-  tag: string;
-  status: string;
-  state?: "normal" | "scheduled" | "missed";
-};
+function Icon({
+  type,
+}: {
+  type: "search" | "plus" | "clock" | "note" | "spark";
+}) {
+  if (type === "search") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="10.5" cy="10.5" r="6.5" />
+        <path d="m16 16 5 5" />
+      </svg>
+    );
+  }
 
-function SavedItem({
+  if (type === "plus") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 5v14M5 12h14" />
+      </svg>
+    );
+  }
+
+  if (type === "clock") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="8" />
+        <path d="M12 8v4l3 2" />
+      </svg>
+    );
+  }
+
+  if (type === "note") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 4h8l3 3v13H7z" />
+        <path d="M15 4v4h4M10 12h5M10 16h4" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" />
+    </svg>
+  );
+}
+
+function ResourceRow({
   domain,
   title,
-  note,
   tag,
-  status,
-  state = "normal"
-}: SavedItemProps) {
+  state,
+}: {
+  domain: string;
+  title: string;
+  tag: string;
+  state?: "saved" | "scheduled";
+}) {
   return (
-    <article className={`saved-item saved-item-${state}`}>
-
-      <div className="saved-item-header">
-
-        <div className="saved-favicon">
-          {domain.charAt(0).toUpperCase()}
-        </div>
-
-        <div className="saved-domain">
-          <strong>{domain}</strong>
-          <span>{domain}.com</span>
-        </div>
-
-        <button
-          type="button"
-          className="item-menu"
-          aria-label={`More options for ${title}`}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-
+    <article className="resource-row">
+      <div className="resource-favicon">
+        {domain.slice(0, 1).toUpperCase()}
       </div>
 
-
-      <div className="saved-title">
-        {title}
+      <div className="resource-copy">
+        <strong>{title}</strong>
+        <span>{domain}</span>
       </div>
 
+      <div className="resource-side">
+        <span className="resource-tag">{tag}</span>
 
-      {note && (
-        <div className="saved-note">
-          {note}
-        </div>
-      )}
-
-
-      <div className="saved-bottom">
-
-        <div className="saved-meta">
-
-          <span className="saved-tag">
-            {tag}
+        {state === "scheduled" ? (
+          <span className="resource-time">
+            <Icon type="clock" />
+            Tomorrow
           </span>
-
-          <span className={`saved-status status-${state}`}>
-            <span className="status-point" />
-            {status}
-          </span>
-
-        </div>
-
-        <span className="open-link">
-          Open
-        </span>
-
+        ) : (
+          <span className="resource-state">Saved</span>
+        )}
       </div>
-
     </article>
   );
 }
 
-
 export function ProductHero() {
   return (
-    <div className="product-composition">
+    <div className="product-stage" aria-label="Tab Story product preview">
+      <div className="product-window extension-preview">
+        <div className="preview-topbar">
+          <div className="preview-brand">
+            <div className="preview-brand-mark">T</div>
 
-      <div className="extension-window">
-
-        <div className="window-header">
-
-          <div className="window-brand">
-
-            <div className="window-logo">
-              T
+            <div>
+              <strong>Tab Story</strong>
+              <span>Library</span>
             </div>
-
-            <div className="window-brand-text">
-
-              <strong>
-                Tab Story
-              </strong>
-
-              <span>
-                Library
-              </span>
-
-            </div>
-
           </div>
 
-
-          <div className="window-actions">
-
-            <button
-              type="button"
-              className="window-icon-button"
-              aria-label="Search"
-            >
-              <svg
-                viewBox="0 0 20 20"
-                aria-hidden="true"
-              >
-                <circle
-                  cx="8"
-                  cy="8"
-                  r="5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-                <path
-                  d="M12 12l4 4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              </svg>
+          <div className="preview-actions">
+            <button type="button" aria-label="Search">
+              <Icon type="search" />
             </button>
 
             <button
               type="button"
-              className="window-add-button"
+              className="preview-add"
               aria-label="Save current tab"
             >
-              +
+              <Icon type="plus" />
             </button>
-
           </div>
-
         </div>
 
-
-        <div className="window-content">
-
-          <div className="window-summary">
-
+        <div className="preview-content">
+          <div className="preview-intro">
             <div>
-
-              <span>
-                SAVED TODAY
-              </span>
-
-              <strong>
-                12 tabs
-              </strong>
-
+              <span className="preview-kicker">YOUR LIBRARY</span>
+              <h3>Research</h3>
             </div>
 
-            <div className="sync-pill">
-              <span />
-              Synced
-            </div>
-
+            <span className="preview-count">12 saved</span>
           </div>
 
-
-          <div className="collection-bar">
-
-            <div>
-              <span className="collection-dot" />
-              Research
-            </div>
-
-            <span>
-              3 items
-            </span>
-
+          <div className="preview-search">
+            <Icon type="search" />
+            <span>Search saved pages</span>
+            <kbd>⌘K</kbd>
           </div>
 
+          <div className="preview-filters">
+            <span className="filter-active">All</span>
+            <span>Unread</span>
+            <span>Scheduled</span>
+            <span>Pinned</span>
+          </div>
 
-          <div className="saved-list">
-
-            <SavedItem
-              domain="docs"
-              title="Designing systems that stay understandable"
-              note="Keep this for the product architecture review."
+          <div className="resource-list">
+            <ResourceRow
+              domain="developer.mozilla.org"
+              title="Building interfaces that stay understandable"
               tag="research"
-              status="Saved"
             />
 
-            <SavedItem
-              domain="read"
-              title="A practical guide to better reading workflows"
-              note="Come back after the weekend."
+            <ResourceRow
+              domain="readwise.io"
+              title="A better workflow for reading later"
               tag="read later"
-              status="Tomorrow · 9:00 AM"
               state="scheduled"
             />
 
-            <SavedItem
-              domain="paper"
-              title="Knowledge work and the cost of context switching"
-              tag="review"
-              status="Missed · 2 days ago"
-              state="missed"
+            <ResourceRow
+              domain="webkit.org"
+              title="Designing for the browser as a workspace"
+              tag="product"
             />
-
           </div>
 
+          <div className="preview-footer-line">
+            <span className="sync-indicator" />
+            Local library ready
+          </div>
         </div>
-
       </div>
 
-
-      <div className="pwa-window">
-
-        <div className="pwa-header">
-
-          <div className="pwa-brand">
-
-            <span className="pwa-logo">
-              T
-            </span>
-
-            <strong>
-              Tab Story
-            </strong>
-
+      <div className="product-window companion-preview">
+        <div className="companion-top">
+          <div>
+            <span className="preview-kicker">REVIEW</span>
+            <strong>Come back to it.</strong>
           </div>
 
-          <div className="pwa-user">
-            M
-          </div>
-
+          <div className="companion-avatar">M</div>
         </div>
 
-
-        <div className="pwa-content">
-
-          <span className="pwa-overline">
-            TODAY
-          </span>
-
-          <h3>
-            Keep your saved
-            <br />
-            web within reach.
-          </h3>
-
-
-          <div className="pwa-reminder">
-
-            <div className="reminder-calendar">
-              <strong>
-                09
-              </strong>
-
-              <span>
-                SEP
-              </span>
-            </div>
-
-            <div className="reminder-content">
-
-              <span>
-                UPCOMING
-              </span>
-
-              <strong>
-                Design review
-              </strong>
-
-              <small>
-                9:00 AM · Research
-              </small>
-
-            </div>
-
+        <div className="companion-card">
+          <div className="companion-card-icon">
+            <Icon type="clock" />
           </div>
 
-
-          <div className="pwa-row">
-
-            <div className="pwa-folder">
-              12
-            </div>
-
-            <div className="pwa-row-copy">
-              <strong>
-                Research
-              </strong>
-
-              <span>
-                12 saved pages
-              </span>
-            </div>
-
-            <span className="pwa-arrow">
-              →
-            </span>
-
+          <div>
+            <span>UPCOMING</span>
+            <strong>Design review</strong>
+            <small>Tomorrow · 9:00 AM</small>
           </div>
-
-
-          <div className="pwa-row">
-
-            <div className="pwa-folder">
-              08
-            </div>
-
-            <div className="pwa-row-copy">
-              <strong>
-                Projects
-              </strong>
-
-              <span>
-                8 saved pages
-              </span>
-            </div>
-
-            <span className="pwa-arrow">
-              →
-            </span>
-
-          </div>
-
         </div>
 
+        <div className="companion-card">
+          <div className="companion-card-icon accent">
+            <Icon type="spark" />
+          </div>
 
-        <div className="pwa-nav">
-
-          <span className="active">
-            Library
-          </span>
-
-          <span>
-            Review
-          </span>
-
-          <span>
-            Schedule
-          </span>
-
+          <div>
+            <span>AI</span>
+            <strong>Discuss this page</strong>
+            <small>Ask a question about a saved resource</small>
+          </div>
         </div>
 
+        <div className="companion-stat-row">
+          <div>
+            <span>12</span>
+            <small>saved</small>
+          </div>
+
+          <div>
+            <span>04</span>
+            <small>scheduled</small>
+          </div>
+
+          <div>
+            <span>08</span>
+            <small>tagged</small>
+          </div>
+        </div>
       </div>
 
-
-      <div className="product-caption">
-        <span className="caption-dot" />
-        Your library stays in sync.
+      <div className="stage-label">
+        <span className="stage-label-dot" />
+        Product preview
+        <span>Extension + companion workflow</span>
       </div>
-
     </div>
   );
 }
