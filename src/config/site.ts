@@ -1,15 +1,20 @@
 export const siteConfig = {
   productName: "Tab Story",
+
   positioning: {
-    eyebrow: "A smarter way to browse",
-    headline: "Save, organize, and revisit the web.",
+    headline: "Save it now. Get reminded when it matters.",
     description:
-      "Tab Story turns open tabs into an organized library with notes, reminders, search, and optional AI — in the browser and as a PWA companion.",
+      "Save any tab, add a note, and set a reminder so you can come back when it actually matters.",
   },
+
   assets: {
     extensionScreenshot: "/screenshots/tab-story-extension.webp",
     pwaScreenshot: "/screenshots/tab-story-pwa.webp",
+    brandLogo: "/brand/tab-story-logo.png",
+    brandIcon: "/brand/tab-story-icon.png",
+    chromeLogo: "/brand/chrome.svg",
   },
+
   links: {
     extensionStoreUrl:
       "https://chromewebstore.google.com/detail/tab-story/nhjglpjgddjcjafdabmepgalnaejnleb",
@@ -20,6 +25,7 @@ export const siteConfig = {
       "https://github.com/Rawdyrathaur/Tab_story/blob/main/PRIVACY.md",
     supportUrl: "https://github.com/Rawdyrathaur/Tab_story/issues/new",
   },
+
   freePlan: {
     price: "$0",
     label: "Free · Local-first",
@@ -35,6 +41,7 @@ export const siteConfig = {
       "Optional Google Drive and Calendar integrations",
     ],
   },
+
   plannedPlan: {
     label: "Hosted Sync",
     description:
