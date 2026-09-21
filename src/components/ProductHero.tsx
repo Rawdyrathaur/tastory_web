@@ -2,26 +2,26 @@ import { siteConfig } from "../config/site";
 
 export function ProductHero() {
   return (
-    <div className="hero-product-showcase">
-      <div className="screenshot-meta">
-        <span className="screenshot-meta-dot" />
-        <span>Chrome extension</span>
-        <span className="screenshot-meta-muted">Real product UI</span>
+    <div className="hero-product" id="screenshots" aria-label="Tab Story product screenshots">
+      <div className="hero-shot-stage">
+        <figure className="hero-shot hero-shot-extension">
+          <div className="hero-shot-bar"><span>Chrome extension</span><small>Real product UI</small></div>
+          <div className="hero-shot-image">
+            <img src={siteConfig.assets.extensionScreenshot} alt="Tab Story Chrome extension showing saved tabs, search, reminders, notes, and actions." fetchPriority="high" />
+          </div>
+        </figure>
+
+        <figure className="hero-shot hero-shot-pwa">
+          <div className="hero-shot-bar"><span>PWA</span><small>Companion</small></div>
+          <div className="hero-shot-image">
+            <img src={siteConfig.assets.pwaScreenshot} alt="Tab Story PWA showing the saved-tab library on a mobile-sized interface." />
+          </div>
+        </figure>
       </div>
 
-      <figure className="screenshot-frame screenshot-frame-hero">
-        <div className="screenshot-frame-inner">
-          <img
-            src={siteConfig.assets.extensionScreenshot}
-            alt="Tab Story Chrome extension showing the saved-tab library, search, reminders, notes, tags, and actions."
-            fetchPriority="high"
-          />
-        </div>
-      </figure>
-
-      <div className="hero-shot-note">
-        <strong>Save once. Come back with context.</strong>
-        <span>Shown from the actual Tab Story extension interface.</span>
+      <div className="hero-shot-foot">
+        <div><span className="hero-shot-dot" /><strong>One workflow. Two surfaces.</strong></div>
+        <span>Real product UI, shown at a controlled scale.</span>
       </div>
     </div>
   );

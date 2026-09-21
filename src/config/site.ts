@@ -1,33 +1,30 @@
 export const siteConfig = {
   productName: "Tab Story",
-
   positioning: {
-    eyebrow: "A calmer way to keep what matters",
-    headline: "Save it now. Return when it matters.",
+    eyebrow: "A smarter way to browse",
+    headline: "Save, organize, and revisit the web.",
     description:
-      "Tab Story turns browser tabs into a focused library for saving, organizing, annotating, scheduling, and revisiting the web.",
+      "Tab Story turns open tabs into an organized library with notes, reminders, search, and optional AI — in the browser and as a PWA companion.",
   },
-
   assets: {
     extensionScreenshot: "/screenshots/tab-story-extension.webp",
     pwaScreenshot: "/screenshots/tab-story-pwa.webp",
   },
-
   links: {
     extensionStoreUrl:
       "https://chromewebstore.google.com/detail/tab-story/nhjglpjgddjcjafdabmepgalnaejnleb",
     webAppUrl: "",
     extensionRepoUrl: "https://github.com/Rawdyrathaur/Tab_story",
     pwaRepoUrl: "https://github.com/Rawdyrathaur/Tab_story_PWA",
-    privacyUrl: "https://github.com/Rawdyrathaur/Tab_story/blob/main/PRIVACY.md",
+    privacyUrl:
+      "https://github.com/Rawdyrathaur/Tab_story/blob/main/PRIVACY.md",
     supportUrl: "https://github.com/Rawdyrathaur/Tab_story/issues/new",
   },
-
   freePlan: {
     price: "$0",
-    label: "Local-first",
+    label: "Free · Local-first",
     description:
-      "The core Tab Story workflow lives in your browser and does not require a hosted account.",
+      "The core Tab Story workflow runs locally in your browser and does not require a hosted account.",
     features: [
       "Save and organize tabs",
       "Folders, tags, pins, and notes",
@@ -38,9 +35,8 @@ export const siteConfig = {
       "Optional Google Drive and Calendar integrations",
     ],
   },
-
   plannedPlan: {
-    label: "Hosted sync",
+    label: "Hosted Sync",
     description:
       "Cross-device synchronization and account-based services are being designed separately from the local-first core.",
     features: [
