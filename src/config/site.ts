@@ -8,6 +8,11 @@ export const siteConfig = {
       "Tab Story turns browser tabs into a focused library for saving, organizing, annotating, scheduling, and revisiting the web.",
   },
 
+  assets: {
+    extensionScreenshot: "/screenshots/tab-story-extension.webp",
+    pwaScreenshot: "/screenshots/tab-story-pwa.webp",
+  },
+
   links: {
     extensionStoreUrl:
       "https://chromewebstore.google.com/detail/tab-story/nhjglpjgddjcjafdabmepgalnaejnleb",

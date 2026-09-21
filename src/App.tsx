@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { ReactNode } from "react";
 import { Header } from "./components/Header";
 import { ProductHero } from "./components/ProductHero";
 import { siteConfig } from "./config/site";
@@ -8,14 +9,14 @@ const features = [
     number: "01",
     title: "Save without losing the context.",
     description:
-      "Capture the page, keep the title and domain, and add your own note when the link needs more context.",
+      "Capture the page, keep the title and domain, and add a note when the link needs more context.",
     icon: "save",
   },
   {
     number: "02",
     title: "Turn a pile of tabs into a library.",
     description:
-      "Use folders, tags, pins, search, and a focused history view to keep useful pages discoverable.",
+      "Use folders, tags, pins, search, and saved history to keep useful pages discoverable.",
     icon: "organize",
   },
   {
@@ -84,27 +85,27 @@ const faqs = [
   {
     question: "Will cross-device sync be available?",
     answer:
-      "Cross-device synchronization is being designed as a separate hosted capability. The local-first extension remains the core product, while the sync layer is being built with explicit conflict and offline handling.",
+      "Cross-device synchronization is being designed as a separate hosted capability. The local-first extension remains the core product while the sync layer is built with explicit conflict and offline handling.",
   },
 ];
 
 function SectionLabel({
-  number,
   children,
+  number,
 }: {
+  children: ReactNode;
   number?: string;
-  children: React.ReactNode;
 }) {
   return (
     <div className="section-label">
-      {number && <span>{number}</span>}
+      {number ? <span>{number}</span> : <span className="section-label-mark" />}
       <strong>{children}</strong>
     </div>
   );
 }
 
 function FeatureIcon({ type }: { type: string }) {
-  const paths: Record<string, React.ReactNode> = {
+  const paths: Record<string, ReactNode> = {
     save: (
       <>
         <path d="M5 4h10l4 4v12H5z" />
@@ -180,18 +181,17 @@ export default function App() {
 
                 <a
                   className="button button-secondary button-large"
-                  href="#how-it-works"
+                  href="#product-preview"
                 >
-                  See how it works
+                  See the real product
                 </a>
               </div>
 
               <div className="hero-meta">
                 <span>
                   <b className="meta-dot" />
-                  Chrome extension available now
+                  Available now
                 </span>
-
                 <span>Chrome 120+</span>
                 <span>Local-first by default</span>
               </div>
@@ -209,17 +209,14 @@ export default function App() {
               <span className="signal-value">Save</span>
               <span className="signal-copy">the useful part</span>
             </div>
-
             <div>
               <span className="signal-value">Organize</span>
               <span className="signal-copy">without overthinking it</span>
             </div>
-
             <div>
               <span className="signal-value">Schedule</span>
               <span className="signal-copy">the moment to return</span>
             </div>
-
             <div>
               <span className="signal-value">Understand</span>
               <span className="signal-copy">with optional AI</span>
@@ -231,7 +228,6 @@ export default function App() {
           <div className="container editorial-grid">
             <div className="editorial-aside">
               <SectionLabel>Why Tab Story</SectionLabel>
-
               <p>
                 Browsers are excellent at opening things. They are much less
                 useful at helping you remember why you opened them.
@@ -243,7 +239,6 @@ export default function App() {
                 Your browser history shouldn't be the place where your best
                 research disappears.
               </h2>
-
               <p>
                 Tab Story gives saved pages a home, a little structure, and a
                 reason to come back to them later.
@@ -256,9 +251,7 @@ export default function App() {
           <div className="container">
             <div className="section-heading">
               <SectionLabel>What you can do</SectionLabel>
-
               <h2>A small system for a very large web.</h2>
-
               <p>
                 Everything is built around the simple act of saving something
                 now and making it useful later.
@@ -270,7 +263,6 @@ export default function App() {
                 <article className="feature-card" key={feature.number}>
                   <div className="feature-top">
                     <span className="feature-number">{feature.number}</span>
-
                     <span className="feature-icon">
                       <FeatureIcon type={feature.icon} />
                     </span>
@@ -292,18 +284,15 @@ export default function App() {
           <div className="container workflow-grid">
             <div className="workflow-copy">
               <SectionLabel>How it works</SectionLabel>
-
               <h2>
                 Fewer tabs.
                 <br />
                 More intention.
               </h2>
-
               <p>
                 The workflow is deliberately simple: capture something useful,
                 give it just enough structure, then let time work for you.
               </p>
-
               <a
                 className="text-link"
                 href={siteConfig.links.extensionStoreUrl}
@@ -319,12 +308,10 @@ export default function App() {
               {steps.map((step, index) => (
                 <article className="step" key={step.number}>
                   <span className="step-number">{step.number}</span>
-
                   <div>
                     <h3>{step.title}</h3>
                     <p>{step.description}</p>
                   </div>
-
                   <span
                     className={`step-arrow ${
                       index === steps.length - 1 ? "muted" : ""
@@ -339,94 +326,75 @@ export default function App() {
           </div>
         </section>
 
-        <section className="product-detail-section">
-          <div className="container product-detail-grid">
-            <div className="detail-copy">
-              <SectionLabel>Inside Tab Story</SectionLabel>
-
-              <h2>Built for the things you don't want to lose.</h2>
-
-              <div className="detail-list">
-                <div>
-                  <span>01</span>
-                  <div>
-                    <strong>Notes with saved pages</strong>
-                    <p>
-                      Keep the reason, context, or next step alongside the
-                      link.
-                    </p>
-                  </div>
-                </div>
-
-                <div>
-                  <span>02</span>
-                  <div>
-                    <strong>History you can actually use</strong>
-                    <p>
-                      Review saved history and restore items when you need
-                      them again.
-                    </p>
-                  </div>
-                </div>
-
-                <div>
-                  <span>03</span>
-                  <div>
-                    <strong>Reminders that stay local</strong>
-                    <p>
-                      Schedule pages for later without needing an account for
-                      the local reminder workflow.
-                    </p>
-                  </div>
-                </div>
+        <section className="product-preview-section" id="product-preview">
+          <div className="container">
+            <div className="product-preview-heading">
+              <div>
+                <SectionLabel>Real product UI</SectionLabel>
+                <h2>One product. Two surfaces.</h2>
               </div>
+              <p>
+                The marketing page now uses the actual interfaces instead of
+                invented mockups, so visitors can see the product as it really
+                looks.
+              </p>
             </div>
 
-            <div className="detail-panel">
-              <div className="detail-panel-header">
-                <span>LIBRARY / TODAY</span>
-                <span>12 items</span>
-              </div>
-
-              <div className="detail-panel-content">
-                <div className="mini-note-card">
-                  <div className="mini-note-top">
-                    <span className="mini-folder">Research</span>
-                    <span>09:12</span>
-                  </div>
-
-                  <strong>
-                    Keep the article. Remember why it matters.
-                  </strong>
-
-                  <p>
-                    Add a note before you close the tab so the useful context
-                    doesn't disappear.
-                  </p>
-                </div>
-
-                <div className="mini-note-row">
-                  <span className="mini-icon">
-                    <FeatureIcon type="schedule" />
-                  </span>
-
+            <div className="product-screenshot-grid">
+              <figure className="product-shot-card extension-shot-card">
+                <div className="product-shot-top">
+                  <span>01</span>
                   <div>
-                    <strong>Read later</strong>
-                    <span>Tomorrow · 9:00 AM</span>
+                    <strong>Chrome extension</strong>
+                    <span>Browser side panel</span>
                   </div>
                 </div>
+                <div className="product-shot-image">
+                  <img
+                    src={siteConfig.assets.extensionScreenshot}
+                    alt="Actual Tab Story Chrome extension screenshot."
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  Save, search, organize, annotate, and schedule from the
+                  extension.
+                </figcaption>
+              </figure>
 
-                <div className="mini-note-row">
-                  <span className="mini-icon">
-                    <FeatureIcon type="ai" />
-                  </span>
-
+              <figure className="product-shot-card pwa-shot-card">
+                <div className="product-shot-top">
+                  <span>02</span>
                   <div>
-                    <strong>Discuss with AI</strong>
-                    <span>Ask about a saved resource</span>
+                    <strong>PWA / mobile</strong>
+                    <span>Companion interface</span>
                   </div>
                 </div>
-              </div>
+                <div className="product-shot-image pwa-image">
+                  <img
+                    src={siteConfig.assets.pwaScreenshot}
+                    alt="Actual Tab Story PWA screenshot showing the mobile library interface."
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  The companion interface keeps the same product language on a
+                  smaller screen.
+                </figcaption>
+              </figure>
+            </div>
+
+            <div className="product-preview-footer">
+              <span>Real screenshots. No placeholder product renders.</span>
+              <a
+                className="text-link"
+                href={siteConfig.links.pwaRepoUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                View PWA repository
+                <span aria-hidden="true">↗</span>
+              </a>
             </div>
           </div>
         </section>
@@ -435,7 +403,6 @@ export default function App() {
           <div className="container privacy-grid">
             <div>
               <SectionLabel>Local-first</SectionLabel>
-
               <h2>Your library is yours first.</h2>
             </div>
 
@@ -446,7 +413,6 @@ export default function App() {
                 configuration you provide, and Google services are only used
                 when you enable them.
               </p>
-
               <a
                 className="text-link"
                 href={siteConfig.links.privacyUrl}
@@ -460,90 +426,11 @@ export default function App() {
           </div>
         </section>
 
-        <section className="companion-section" id="web-app">
-          <div className="container companion-grid">
-            <div className="companion-copy">
-              <SectionLabel>Web companion</SectionLabel>
-
-              <h2>The library should follow the work.</h2>
-
-              <p>
-                The PWA companion is designed around the same saved-library
-                model, giving Tab Story a natural place to grow beyond the
-                browser side panel.
-              </p>
-
-              <div className="companion-actions">
-                <a
-                  className="button button-secondary"
-                  href={siteConfig.links.pwaRepoUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View PWA repository
-                  <span aria-hidden="true">↗</span>
-                </a>
-              </div>
-            </div>
-
-            <div className="companion-board">
-              <div className="companion-board-head">
-                <span>WEB COMPANION</span>
-                <span>LIBRARY</span>
-              </div>
-
-              <div className="companion-board-main">
-                <div className="companion-sidebar">
-                  <span className="sidebar-active">All saved</span>
-                  <span>Research</span>
-                  <span>Projects</span>
-                  <span>Read later</span>
-                </div>
-
-                <div className="companion-library">
-                  <div className="library-heading">
-                    <div>
-                      <span>MONDAY, SEP 20</span>
-                      <strong>Your saved web</strong>
-                    </div>
-
-                    <span className="library-count">24 items</span>
-                  </div>
-
-                  <div className="library-card">
-                    <span className="library-favicon">D</span>
-
-                    <div>
-                      <strong>Design systems and product thinking</strong>
-                      <span>developer.mozilla.org</span>
-                    </div>
-
-                    <span className="library-arrow">→</span>
-                  </div>
-
-                  <div className="library-card">
-                    <span className="library-favicon">R</span>
-
-                    <div>
-                      <strong>Reading workflows worth keeping</strong>
-                      <span>readwise.io</span>
-                    </div>
-
-                    <span className="library-arrow">→</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="pricing-section" id="pricing">
           <div className="container">
             <div className="section-heading pricing-heading">
               <SectionLabel>Pricing</SectionLabel>
-
               <h2>Clear about what's available now.</h2>
-
               <p>
                 The local-first extension is the foundation. Hosted
                 synchronization is kept separate until that infrastructure is
@@ -595,9 +482,7 @@ export default function App() {
                   <span className="plan-status">Planned</span>
                 </div>
 
-                <div className="planned-price">
-                  Coming soon
-                </div>
+                <div className="planned-price">Coming soon</div>
 
                 <p className="pricing-description">
                   {siteConfig.plannedPlan.description}
@@ -730,6 +615,8 @@ export default function App() {
           <div className="footer-links">
             <a href="#product">Product</a>
             <a href="#features">Features</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#product-preview">Screenshots</a>
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
             <a
