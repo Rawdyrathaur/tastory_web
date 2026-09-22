@@ -1436,6 +1436,10 @@ section[id] {
   gap: 10px;
 }
 
+.header-cta {
+  white-space: nowrap;
+}
+
 .brand-lockup {
   display: inline-flex;
   align-items: center;
@@ -1536,6 +1540,10 @@ section[id] {
 }
 
 @media (max-width: 760px) {
+  .header-cta {
+    display: none;
+  }
+
   .github-action {
     display: none;
   }

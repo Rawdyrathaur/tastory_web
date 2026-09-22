@@ -28,6 +28,21 @@ export function Header() {
 
         <div className="header-actions">
           <a
+            className="button button-primary button-small header-cta"
+            href={siteConfig.links.extensionStoreUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              className="brand-button-icon"
+              src={siteConfig.assets.chromeLogo}
+              alt=""
+              aria-hidden="true"
+            />
+            Add to Chrome
+          </a>
+
+          <a
             className="github-action"
             href={siteConfig.links.extensionRepoUrl}
             target="_blank"

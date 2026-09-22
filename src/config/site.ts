@@ -18,7 +18,7 @@ export const siteConfig = {
   links: {
     extensionStoreUrl:
       "https://chromewebstore.google.com/detail/tab-story/nhjglpjgddjcjafdabmepgalnaejnleb",
-    webAppUrl: "",
+    webAppUrl: "https://tabstory.pages.dev/",
     extensionRepoUrl: "https://github.com/Rawdyrathaur/Tab_story",
     pwaRepoUrl: "https://github.com/Rawdyrathaur/Tab_story_PWA",
     privacyUrl:

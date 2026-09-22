@@ -237,11 +237,11 @@ export default function App() {
 
               <a
                 className="button button-secondary"
-                href={siteConfig.links.pwaRepoUrl}
+                href={siteConfig.links.webAppUrl}
                 target="_blank"
                 rel="noreferrer"
               >
-                Explore the PWA <span aria-hidden="true">→</span>
+                Open the PWA <span aria-hidden="true">↗</span>
               </a>
             </div>
 
