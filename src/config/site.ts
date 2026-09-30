@@ -1,5 +1,8 @@
 export const siteConfig = {
-  productName: "Tab Story",
+  productName: "TabRevo",
+
+  siteUrl: "https://tabrevo.duckdns.org",
+  serverIp: "140.238.244.49",
 
   positioning: {
     headline: "Save it now. Get reminded when it matters.",
@@ -8,10 +11,10 @@ export const siteConfig = {
   },
 
   assets: {
-    extensionScreenshot: "/screenshots/tab-story-extension.webp",
-    pwaScreenshot: "/screenshots/tab-story-pwa.webp",
-    brandLogo: "/brand/tab-story-logo.png",
-    brandIcon: "/brand/tab-story-icon.png",
+    extensionScreenshot: "/screenshots/tabrevo-extension.webp",
+    pwaScreenshot: "/screenshots/tabrevo-pwa.webp",
+    brandLogo: "/brand/tabrevo-logo.png",
+    brandIcon: "/brand/tabrevo-icon.png",
     chromeLogo: "/brand/chrome.svg",
   },
 
@@ -30,7 +33,7 @@ export const siteConfig = {
     price: "$0",
     label: "Free · Local-first",
     description:
-      "The core Tab Story workflow runs locally in your browser and does not require a hosted account.",
+      "The core TabRevo workflow runs locally in your browser and does not require a hosted account.",
     features: [
       "Save and organize tabs",
       "Folders, tags, pins, and notes",

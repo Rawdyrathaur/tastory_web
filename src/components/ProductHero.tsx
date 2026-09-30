@@ -8,18 +8,18 @@ export function ProductHero() {
           <div className="hero-product-media">
             <img
               src={siteConfig.assets.extensionScreenshot}
-              alt="Tab Story Chrome extension showing saved tabs, search, reminders, notes, and actions."
+              alt="TabRevo Chrome extension showing saved tabs, search, reminders, notes, and actions."
               fetchPriority="high"
             />
           </div>
         </figure>
 
-        <figure className="hero-product-phone" aria-label="Tab Story PWA preview">
+        <figure className="hero-product-phone" aria-label="TabRevo PWA preview">
           <div className="hero-phone-shell">
             <div className="hero-phone-screen">
               <img
                 src={siteConfig.assets.pwaScreenshot}
-                alt="Tab Story PWA showing the saved-tab library on a mobile screen."
+                alt="TabRevo PWA showing the saved-tab library on a mobile screen."
               />
             </div>
           </div>

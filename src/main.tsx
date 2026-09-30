@@ -6,7 +6,7 @@ import "./styles/global.css";
 const root = document.getElementById("root");
 
 if (!root) {
-  throw new Error("Tab Story root element was not found.");
+  throw new Error("TabRevo root element was not found.");
 }
 
 createRoot(root).render(

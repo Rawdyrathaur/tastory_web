@@ -1,4 +1,4 @@
-name: Deploy Tab Story to GitHub Pages
+name: Deploy TabRevo to GitHub Pages
 
 on:
   push:

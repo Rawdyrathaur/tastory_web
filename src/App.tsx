@@ -45,8 +45,8 @@ const states = [
 ] as const;
 
 const faqs = [
-  ["Where does my Tab Story data live?", "The extension is local by default. Saved tabs, notes, folders, tags, and reminder state are stored in the browser. Optional integrations can send associated data to the service you explicitly enable."],
-  ["Does Tab Story send everything to AI?", "No. AI features are opt-in. When you request a summary or discussion, the selected page content and your question are sent to Google using the Gemini API configuration you provide."],
+  ["Where does my TabRevo data live?", "The extension is local by default. Saved tabs, notes, folders, tags, and reminder state are stored in the browser. Optional integrations can send associated data to the service you explicitly enable."],
+  ["Does TabRevo send everything to AI?", "No. AI features are opt-in. When you request a summary or discussion, the selected page content and your question are sent to Google using the Gemini API configuration you provide."],
   ["Can I back up my library?", "Yes. The extension can optionally back up supported library data to Google Drive. API keys are excluded from the backup flow."],
   ["What browsers are supported?", "The current extension targets Chrome and requires Chrome 120 or newer."],
   ["Is hosted sync available today?", "Not yet. Hosted synchronization is being designed as a separate capability. The local-first extension is the available product today."],
@@ -176,7 +176,7 @@ export default function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Install Tab Story <span aria-hidden="true">→</span>
+                Install TabRevo <span aria-hidden="true">→</span>
               </a>
             </div>
 
@@ -250,7 +250,7 @@ export default function App() {
                 <div className="showcase-phone-screen">
                   <img
                     src={siteConfig.assets.pwaScreenshot}
-                    alt="Tab Story PWA showing the Schedule view with reminders."
+                    alt="TabRevo PWA showing the Schedule view with reminders."
                     loading="lazy"
                   />
                 </div>
@@ -397,14 +397,14 @@ export default function App() {
 
       <footer className="site-footer">
         <div className="container footer-top">
-          <div>            <a className="brand-lockup footer-lockup" href="#top" aria-label="Tab Story home">
+          <div>            <a className="brand-lockup footer-lockup" href="#top" aria-label="TabRevo home">
               <img
                 className="brand-logo"
                 src={siteConfig.assets.brandLogo}
                 alt=""
                 aria-hidden="true"
               />
-              <span className="logo-word">Tab Story</span>
+              <span className="logo-word">TabRevo</span>
             </a>
             <p>Save it now. Get reminded when it matters.</p>
           </div>
@@ -420,7 +420,7 @@ export default function App() {
         </div>
 
         <div className="container footer-bottom">
-          <span>© 2026 Tab Story</span>
+          <span>© 2026 TabRevo</span>
           <span>Local-first by default.</span>
         </div>
       </footer>

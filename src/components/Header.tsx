@@ -9,14 +9,14 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a className="brand-lockup" href="#top" aria-label="Tab Story home">
+        <a className="brand-lockup" href="#top" aria-label="TabRevo home">
           <img
             className="brand-logo"
             src={siteConfig.assets.brandLogo}
             alt=""
             aria-hidden="true"
           />
-          <span className="logo-word">Tab Story</span>
+          <span className="logo-word">TabRevo</span>
         </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
@@ -47,7 +47,7 @@ export function Header() {
             href={siteConfig.links.extensionRepoUrl}
             target="_blank"
             rel="noreferrer"
-            aria-label="Tab Story on GitHub"
+            aria-label="TabRevo on GitHub"
           >
             <img className="github-mark" src="/brand/github.svg" alt="" aria-hidden="true" />
             <span>GitHub</span>
